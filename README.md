@@ -19,6 +19,12 @@ This will take some time (lots to download), performing the following tasks:
 
 That's the boring/messy stuff out of the way - your new Docker image should now be built.
 
+Alternatively you can pull this image from the Docker Hub Registry:
+
+```sh
+$ sudo docker pull magnetikonline/html5validator
+```
+
 ## Running
 To execute the image, run the following:
 
