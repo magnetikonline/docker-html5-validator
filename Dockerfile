@@ -7,6 +7,8 @@ RUN apt-get -y install \
 	libapache2-mod-perl2 libhtml-tidy-perl libosp-dev libxml-libxml-perl libxml2-dev \
 	openjdk-6-jre opensp supervisor unzip zlib1g-dev
 
+RUN apt-get clean
+
 RUN mkdir /root/build
 ADD ./resource/apache.server.conf /etc/apache2/conf-available/server.conf
 ADD ./resource/supervisord.conf /etc/supervisor/conf.d/
