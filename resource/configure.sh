@@ -29,6 +29,13 @@ cp validator-1.3/httpd/conf/httpd.conf $W3C_VALIDATOR_APACHE_CONF
 mv validator-1.1/htdocs/sgml-lib /usr/local/validator/htdocs
 cp /usr/local/validator/htdocs/config/* /etc/w3c
 
+# modify $W3C_VALIDATOR_APACHE_CONF to enable SSILegacyExprParser for Apache 2.4.x web server (needed for W3C validator app)
+cat $W3C_VALIDATOR_APACHE_CONF \
+	| sed -e 's/<Directory \/usr\/local\/validator\/htdocs\/>/<Directory \/usr\/local\/validator\/htdocs\/>\n  SSILegacyExprParser on\n/' \
+	> $W3C_VALIDATOR_APACHE_CONF.tmp
+
+mv $W3C_VALIDATOR_APACHE_CONF.tmp $W3C_VALIDATOR_APACHE_CONF
+
 # modify $W3C_VALIDATOR_APACHE_CONF to open access for HTTP requests
 cat $W3C_VALIDATOR_APACHE_CONF \
 	| sed -e 's/<Directory \/usr\/local\/validator\/htdocs\/>/<Directory \/usr\/local\/validator\/htdocs\/>\n  Require all granted\n/' \
