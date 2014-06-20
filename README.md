@@ -1,4 +1,4 @@
-# Docker W3C/HTML5 validator image
+# Docker W3C/HTML5 validator instance
 Dockerfile for the creation of a self contained W3C Markup validator (with HTML5 validation) instance for fast/offline validation of authored HTML documents.
 
 Setup of such a configuration can be tricky and a little messy so having all this in an isolated and automated way seemed like a good idea.
@@ -11,11 +11,11 @@ $ ./build.sh
 ```
 
 This will take some time (lots to download), performing the following tasks:
-- Install Ubuntu base (14.04), Apache, OpenJDK 6, supervisord and a few others.
+- Install Ubuntu base (14.04), Apache HTTP server, OpenJDK 6, [supervisord](http://supervisord.org/) and a few others.
 - Download latest W3C validator source and [Validator.nu](http://validator.github.io/) `vnu.jar` portable HTML5 validator jar.
 - Configure Perl/CPAN
 - Install and configure W3C validator (including Validator.nu setup).
-- Start Apache2 and Validator.nu under `supervisord`.
+- Start Apache and Validator.nu under `supervisord`.
 
 That's the boring/messy stuff out of the way - your new Docker image should now be built.
 
