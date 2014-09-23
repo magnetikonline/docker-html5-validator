@@ -29,11 +29,16 @@ cp validator-1.3/httpd/conf/httpd.conf $W3C_VALIDATOR_APACHE_CONF
 mv validator-1.1/htdocs/sgml-lib /usr/local/validator/htdocs
 cp /usr/local/validator/htdocs/config/* /etc/w3c
 
+# modify $W3C_VALIDATOR_CONF to allow validation of private IP addresses
+cat $W3C_VALIDATOR_CONF \
+	| sed -e 's/Allow Private IPs = no/Allow Private IPs = yes/' \
+	> $W3C_VALIDATOR_CONF.tmp
+mv $W3C_VALIDATOR_CONF.tmp $W3C_VALIDATOR_CONF
+
 # modify $W3C_VALIDATOR_APACHE_CONF to enable SSILegacyExprParser for Apache 2.4.x web server (needed for W3C validator app)
 cat $W3C_VALIDATOR_APACHE_CONF \
 	| sed -e 's/<Directory \/usr\/local\/validator\/htdocs\/>/<Directory \/usr\/local\/validator\/htdocs\/>\n  SSILegacyExprParser on\n/' \
 	> $W3C_VALIDATOR_APACHE_CONF.tmp
-
 mv $W3C_VALIDATOR_APACHE_CONF.tmp $W3C_VALIDATOR_APACHE_CONF
 
 # modify $W3C_VALIDATOR_APACHE_CONF to open access for HTTP requests
@@ -41,7 +46,6 @@ cat $W3C_VALIDATOR_APACHE_CONF \
 	| sed -e 's/<Directory \/usr\/local\/validator\/htdocs\/>/<Directory \/usr\/local\/validator\/htdocs\/>\n  Require all granted\n/' \
 	| sed -e 's/<LocationMatch "^\/+w3c-validator\/+(check|feedback(\\.html)?)$">/<LocationMatch "^\/+w3c-validator\/+(check|feedback(\\.html)?)$">\n  Require all granted\n/' \
 	> $W3C_VALIDATOR_APACHE_CONF.tmp
-
 mv $W3C_VALIDATOR_APACHE_CONF.tmp $W3C_VALIDATOR_APACHE_CONF
 
 # modify $W3C_VALIDATOR_APACHE_CONF so validator is accessible from http://[server]:[port]/, not http://[server]:[port]/w3c-validator/
@@ -52,7 +56,6 @@ cat $W3C_VALIDATOR_APACHE_CONF \
 	| sed -e 's/w3c-validator\/+//' \
 	| sed -e 's/\/w3c-validator\/check/\/check/' \
 	> $W3C_VALIDATOR_APACHE_CONF.tmp
-
 mv $W3C_VALIDATOR_APACHE_CONF.tmp $W3C_VALIDATOR_APACHE_CONF
 
 a2enmod cgid
@@ -74,7 +77,6 @@ cat $W3C_VALIDATOR_CONF \
 	| sed -e 's/#HTML5 =/HTML5 =/' \
 	| sed -e 's/#CompoundXML =/CompoundXML/' \
 	> $W3C_VALIDATOR_CONF.tmp
-
 mv $W3C_VALIDATOR_CONF.tmp $W3C_VALIDATOR_CONF
 
 # all done
