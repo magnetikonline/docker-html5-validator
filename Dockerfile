@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.04.1
 MAINTAINER Peter Mescalchin "peter@magnetikonline.com"
 
 RUN apt-get update && apt-get -y upgrade
@@ -14,7 +14,7 @@ ADD ./resource/apache.server.conf /etc/apache2/conf-available/server.conf
 ADD ./resource/supervisord.conf /etc/supervisor/conf.d/
 ADD http://validator.w3.org/validator.tar.gz /root/build/
 ADD http://validator.w3.org/sgml-lib.tar.gz /root/build/
-ADD https://github.com/validator/validator.github.io/releases/download/20141006/vnu-20141006.jar.zip /root/build/
+ADD https://github.com/validator/validator/releases/download/20141006/vnu-20141013.jar.zip /root/build/
 
 ADD ./resource/configure.sh /root/build/
 WORKDIR /root/build
