@@ -70,7 +70,7 @@ a2enconf w3c-validator
 
 # install standalone validator.nu jar to $VALIDATOR_NU_BASE_DIR/vnu.jar
 mkdir $VALIDATOR_NU_BASE_DIR
-unzip -j vnu*.zip -d $VALIDATOR_NU_BASE_DIR
+unzip -j vnu-*.zip -d $VALIDATOR_NU_BASE_DIR
 
 # enable validator.nu within W3C validator $W3C_VALIDATOR_CONF file
 cat $W3C_VALIDATOR_CONF \
