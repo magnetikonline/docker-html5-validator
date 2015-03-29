@@ -13,6 +13,6 @@ deployment:
     branch: master
     commands:
       - echo "{\"https://index.docker.io/v1/\":{\"auth\":\"<AUTH>\",\"email\":\"<EMAIL>\"}}" | sed "s/<EMAIL>/$HUB_EMAIL/;s/<AUTH>/$HUB_AUTH/" > ~/.dockercfg
-      - docker tag dockerhtml5validator_dockerhtml5validator woorank/dockerhtml5validator:$CIRCLE_BUILD_NUM
-      - docker tag woorank/dockerhtml5validator:$CIRCLE_BUILD_NUM woorank/dockerhtml5validator:$latest
-      - docker push woorank/dockerhtml5validator
+      - docker push woorank/dockerhtml5validator:$CIRCLE_BUILD_NUM
+      - docker tag woorank/dockerhtml5validator:$CIRCLE_BUILD_NUM woorank/dockerhtml5validator:latest
+      - docker push woorank/dockerhtml5validator:latest
