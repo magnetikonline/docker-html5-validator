@@ -14,7 +14,7 @@ ADD ./resource/apache.server.conf /etc/apache2/conf-available/server.conf
 ADD ./resource/supervisord.conf /etc/supervisor/conf.d/
 ADD http://validator.w3.org/validator.tar.gz /root/build/
 ADD http://validator.w3.org/sgml-lib.tar.gz /root/build/
-https://github.com/validator/validator/releases/download/15.4.12/vnu.jar_15.4.12.zip /root/build/
+ADD https://github.com/validator/validator/releases/download/15.4.12/vnu.jar_15.4.12.zip /root/build/
 
 ADD ./resource/configure.sh /root/build/
 WORKDIR /root/build
