@@ -11,8 +11,8 @@ $ ./build.sh
 ```
 
 This will take some time (lots to download), performing the following tasks:
-- Install Ubuntu base (14.04), Apache HTTP server, OpenJDK 7, [supervisord](http://supervisord.org/) and a few others.
-- Download latest W3C validator source and [Validator.nu](http://validator.github.io/) `vnu.jar` portable HTML5 validator jar.
+- Install Ubuntu base (14.04.2 LTS), Apache HTTP server, OpenJDK 7, [supervisord](http://supervisord.org/) and a few others.
+- Download latest W3C validator source and [Validator.nu](http://validator.github.io/validator/) `vnu.jar` portable HTML5 validator jar.
 - Configure Perl/CPAN.
 - Install and configure W3C validator (including Validator.nu setup).
 - Start Apache and Validator.nu under `supervisord`.
@@ -32,6 +32,10 @@ To start the image, run the following:
 $ ./run.sh
 ```
 
-This will start the image in a new detached container and expose port `80` (Apache2) to your host machine on port `8080`. You can of course run the container on an alternative local port if you desire by modifying the Docker `-p` switch to suit.
+This will start the image in a new backgrounded container, exposing the following ports:
+- Port `80` (Apache2) to host machine on port `8080`.
+- Port `8888` (Validator.nu Java server) to host on port `8888`.
 
-With this complete you should now be able to browse to `http://localhost:8080/` and be presented with a working W3C validator instance.
+You can of course run the container on an alternative local port if you desire by modifying the `docker run -p` switches.
+
+With this complete you should now be able to browse to http://localhost:8080/ and be presented with a working W3C validator instance.
