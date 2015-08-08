@@ -22,7 +22,7 @@ That's the boring/messy stuff out of the way - your new Docker image should now 
 Alternatively you can pull this image directly from the Docker Hub Registry:
 
 ```sh
-$ sudo docker pull magnetikonline/html5validator
+$ docker pull magnetikonline/html5validator
 ```
 
 ## Running
