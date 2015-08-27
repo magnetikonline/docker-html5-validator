@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.2
+FROM ubuntu:14.04.3
 MAINTAINER Peter Mescalchin "peter@magnetikonline.com"
 
 RUN apt-get update && apt-get -y upgrade
