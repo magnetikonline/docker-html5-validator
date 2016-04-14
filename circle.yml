@@ -1,0 +1,18 @@
+machine:  
+  services:
+    - docker
+dependencies:
+  pre:
+    - docker info
+    - docker build -t woorank/w3c:v$CIRCLE_BUILD_NUM .
+test:
+  override:
+    - docker run woorank/w3c:v$CIRCLE_BUILD_NUM true
+deployment:
+  hub:
+    branch: master
+    commands:
+      - echo "{\"https://index.docker.io/v1/\":{\"auth\":\"<AUTH>\",\"email\":\"<EMAIL>\"}}" | sed "s/<EMAIL>/$HUB_EMAIL/;s/<AUTH>/$HUB_AUTH/" > ~/.dockercfg
+      - docker push woorank/w3c:v$CIRCLE_BUILD_NUM
+      - docker tag woorank/w3c:v$CIRCLE_BUILD_NUM woorank/w3c:latest
+      - docker push woorank/w3c:latest

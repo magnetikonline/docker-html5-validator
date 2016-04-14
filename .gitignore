@@ -1,0 +1,7 @@
+grunt/node_modules/
+grunt/src/concat/
+grunt/src/js/
+grunt/-p/
+.vagrant
+vendor/
+/env/.env
