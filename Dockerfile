@@ -1,11 +1,11 @@
-FROM ubuntu:14.04.3
+FROM ubuntu:16.04
 MAINTAINER Peter Mescalchin "peter@magnetikonline.com"
 
 RUN apt-get update && apt-get -y upgrade
 RUN apt-get -y install \
 	apache2 build-essential \
 	libapache2-mod-perl2 libhtml-tidy-perl libosp-dev libxml-libxml-perl libxml2-dev \
-	openjdk-7-jre-headless opensp supervisor unzip zlib1g-dev
+	openjdk-8-jre-headless opensp supervisor unzip zlib1g-dev
 
 RUN apt-get clean
 
