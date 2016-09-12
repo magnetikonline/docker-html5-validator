@@ -12,7 +12,7 @@ RUN apt-get clean
 ADD ./resource/apache.server.conf /etc/apache2/conf-available/server.conf
 ADD ./resource/supervisord.conf /etc/supervisor/conf.d/
 ADD https://github.com/w3c/markup-validator/archive/master.zip /root/build/markup-validator-master.zip
-ADD https://github.com/validator/validator/releases/download/15.6.29/vnu.jar_15.6.29.zip /root/build/
+ADD https://github.com/validator/validator/releases/download/16.6.29/vnu.jar_16.6.29.zip /root/build/
 
 ADD ./resource/configure.sh /root/build/
 WORKDIR /root/build
