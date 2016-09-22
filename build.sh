@@ -1,3 +1,6 @@
-#!/bin/bash
+#!/bin/bash -e
 
-docker build -t magnetikonline/html5validator .
+DIRNAME=$(dirname "$0")
+
+
+docker build --tag magnetikonline/html5validator "$DIRNAME"

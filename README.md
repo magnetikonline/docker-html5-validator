@@ -19,7 +19,7 @@ This will take some time (lots to download), performing the following tasks:
 
 That's the boring/messy stuff out of the way - your new Docker image should now be built.
 
-Alternatively you can pull this image directly from the Docker Hub Registry:
+Alternatively you can pull this image directly from the Docker Hub registry:
 
 ```sh
 $ docker pull magnetikonline/html5validator

@@ -1,13 +1,12 @@
 FROM ubuntu:16.04
-MAINTAINER Peter Mescalchin "peter@magnetikonline.com"
+MAINTAINER Peter Mescalchin <peter@magnetikonline.com>
 
-RUN apt-get update && apt-get -y upgrade
-RUN apt-get -y install \
-	apache2 build-essential \
-	libapache2-mod-perl2 libhtml-tidy-perl libosp-dev libxml-libxml-perl libxml2-dev \
-	openjdk-8-jre-headless opensp supervisor unzip zlib1g-dev
-
-RUN apt-get clean
+RUN apt-get update && apt-get -y upgrade && \
+	apt-get -y install \
+		apache2 build-essential \
+		libapache2-mod-perl2 libhtml-tidy-perl libosp-dev libxml-libxml-perl libxml2-dev \
+		openjdk-8-jre-headless opensp supervisor unzip zlib1g-dev && \
+	apt-get clean
 
 ADD ./resource/apache.server.conf /etc/apache2/conf-available/server.conf
 ADD ./resource/supervisord.conf /etc/supervisor/conf.d/
