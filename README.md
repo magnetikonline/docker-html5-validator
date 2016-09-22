@@ -10,7 +10,7 @@ To build the Docker image, run the following:
 $ ./build.sh
 ```
 
-This will take some time (lots to download), performing the following tasks:
+This will take some time - performing the following tasks:
 - Install Ubuntu base (16.04 LTS), Apache HTTP server, OpenJDK 8, [supervisord](http://supervisord.org/) and a few others.
 - Download latest W3C validator source and [Validator.nu](http://validator.github.io/validator/) `vnu.jar` portable HTML5 validator jar.
 - Configure Perl/CPAN.
@@ -19,7 +19,7 @@ This will take some time (lots to download), performing the following tasks:
 
 That's the boring/messy stuff out of the way - your new Docker image should now be built.
 
-Alternatively you can pull this image directly from the Docker Hub registry:
+Alternatively you can pull this image directly from the [Docker Hub](https://hub.docker.com/r/magnetikonline/html5validator/) registry:
 
 ```sh
 $ docker pull magnetikonline/html5validator
