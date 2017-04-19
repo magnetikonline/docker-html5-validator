@@ -33,9 +33,9 @@ $ ./run.sh
 ```
 
 This will start the image in a new backgrounded container, exposing the following ports:
-- Port `80` (Apache2) to host machine on port `8080`.
-- Port `8888` (Validator.nu Java server) to host on port `8888`.
+- Port `80` (Apache2) presented to host on `8080`.
+- Port `8888` (Validator.nu Java server) presented to host on `8888`.
 
-You can of course run the container on an alternative local port if you desire by modifying the `docker run -p` switches.
+Running the container on alternative local ports is controlled via [`docker run --publish`](run.sh#L5-L6) arguments.
 
 With this complete you should now be able to browse to http://localhost:8080/ and be presented with a working W3C validator instance.
