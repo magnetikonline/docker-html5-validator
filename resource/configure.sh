@@ -85,6 +85,3 @@ cat $W3C_VALIDATOR_CONF | \
 	>"$W3C_VALIDATOR_CONF.tmp"
 
 mv "$W3C_VALIDATOR_CONF.tmp" $W3C_VALIDATOR_CONF
-
-# success
-exit 0
