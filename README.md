@@ -12,7 +12,7 @@ $ ./build.sh
 
 This will take some time - performing the following tasks:
 - Install Ubuntu base (16.04 LTS), Apache HTTP server, OpenJDK 8, [supervisord](http://supervisord.org/) and a few others.
-- Download latest W3C validator source and [Validator.nu](http://validator.github.io/validator/) `vnu.jar` portable HTML5 validator jar.
+- Download latest W3C validator source and [Validator.nu](https://validator.github.io/validator/) `vnu.jar` portable HTML5 validator jar.
 - Configure Perl/CPAN.
 - Install and configure W3C validator (including Validator.nu setup).
 - Start Apache and Validator.nu under `supervisord`.
