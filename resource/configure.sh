@@ -58,14 +58,12 @@ cat "$W3C_VALIDATOR_APACHE_CONF" | \
 mv "$W3C_VALIDATOR_APACHE_CONF.tmp" "$W3C_VALIDATOR_APACHE_CONF"
 
 # modify $W3C_VALIDATOR_APACHE_CONF so validator is accessible from http://[server]:[port]/, not http://[server]:[port]/w3c-validator/
-# note: last sed pipe is to default bug introduced by https://github.com/w3c/markup-validator/commit/23b23d378870db3246191571a8b4a06db11d6a28#diff-4dbd8ed550cc192b639299cfba5431bdR80
 cat "$W3C_VALIDATOR_APACHE_CONF" | \
 	sed --regexp-extended "s/(Alias) \/w3c-validator\//\1 \//" | \
 	sed --regexp-extended "s/(RewriteBase) \/w3c-validator\//\1 \//" | \
 	sed --regexp-extended "s/(Redirect) \/w3c-validator\//\1 \//" | \
 	sed --regexp-extended "s/w3c-validator\/\+//" | \
-	sed --regexp-extended "s/\/w3c-validator(\/check)/\1/" | \
-	sed --regexp-extended "s/(detailed.html) +(#validate-)/\1\2/" \
+	sed --regexp-extended "s/\/w3c-validator(\/check)/\1/" \
 	>"$W3C_VALIDATOR_APACHE_CONF.tmp"
 
 mv "$W3C_VALIDATOR_APACHE_CONF.tmp" "$W3C_VALIDATOR_APACHE_CONF"
