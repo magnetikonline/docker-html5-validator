@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 MAINTAINER Peter Mescalchin <peter@magnetikonline.com>
 
-ENV W3C_VALIDATOR_SHA1 d472e8ae861ff2a5d5bf120d3a76164591f553d4
+ENV W3C_VALIDATOR_SHA1 31cf48c79ccc4c2648125a9606073d013cb107e2
 ENV VNU_VALIDATOR_VERSION 17.11.1
 
 RUN apt-get update && apt-get upgrade --yes && \
