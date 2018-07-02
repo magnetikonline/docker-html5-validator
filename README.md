@@ -19,10 +19,10 @@ This will take some time - performing the following tasks:
 
 That's the boring/messy stuff out of the way - your new Docker image should now be built.
 
-Alternatively you can pull this image directly from the [Docker Hub](https://hub.docker.com/r/magnetikonline/html5validator/) registry:
+Alternatively you can pull this image directly from Docker Hub:
 
 ```sh
-$ docker pull magnetikonline/html5validator
+$ docker pull magnetikonline/html5-validator
 ```
 
 ## Running
@@ -36,6 +36,6 @@ This will start the image in a new backgrounded container, exposing the followin
 - Port `80` (Apache2) presented to host on `8080`.
 - Port `8888` (Validator.nu Java server) presented to host on `8888`.
 
-Running the container on alternative local ports is controlled via [`docker run --publish`](run.sh#L5-L6) arguments.
+Running the container on alternative local ports is controlled via [`docker run --publish`](run.sh#L8-L9) arguments.
 
 With this complete you should now be able to browse to http://localhost:8080/ and be presented with a working W3C validator instance.

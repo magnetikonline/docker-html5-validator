@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Peter Mescalchin <peter@magnetikonline.com>
+LABEL maintainer="Peter Mescalchin <peter@magnetikonline.com>"
 
 ENV W3C_VALIDATOR_SHA1 31cf48c79ccc4c2648125a9606073d013cb107e2
 ENV VNU_VALIDATOR_VERSION 17.11.1
@@ -13,13 +13,13 @@ RUN apt-get update && apt-get upgrade --yes && \
 
 ADD ./resource/apache.server.conf /etc/apache2/conf-available/server.conf
 ADD ./resource/supervisord.conf /etc/supervisor/conf.d/
-ADD https://github.com/w3c/markup-validator/archive/$W3C_VALIDATOR_SHA1.zip /root/build/markup-validator-$W3C_VALIDATOR_SHA1.zip
-ADD https://github.com/validator/validator/releases/download/$VNU_VALIDATOR_VERSION/vnu.jar_$VNU_VALIDATOR_VERSION.zip /root/build/
+ADD "https://github.com/w3c/markup-validator/archive/$W3C_VALIDATOR_SHA1.zip" "/root/build/markup-validator-$W3C_VALIDATOR_SHA1.zip"
+ADD "https://github.com/validator/validator/releases/download/$VNU_VALIDATOR_VERSION/vnu.jar_$VNU_VALIDATOR_VERSION.zip" /root/build/
 
 ADD ./resource/configure.sh /root/build/
 WORKDIR /root/build
 RUN chmod u+x configure.sh
-RUN ./configure.sh $W3C_VALIDATOR_SHA1 $VNU_VALIDATOR_VERSION
+RUN ./configure.sh "$W3C_VALIDATOR_SHA1" "$VNU_VALIDATOR_VERSION"
 
 EXPOSE 80
 
